@@ -1,0 +1,56 @@
+﻿@model IEnumerable<searching_data.Models.user>
+
+<div class="container">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i>  </span>
+            <input type="text" id="Search"  placeholder="Search" class="form-control" />
+        </div>
+    </div>
+</div>
+
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>user_name_id</td>
+            <td>user_name</td>
+            <td>email</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="Search">
+                <td>@item.id</td>
+                <td>@item.user_name_id</td>
+                <td>@item.user_name</td>
+                <td>@item.user_email</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>

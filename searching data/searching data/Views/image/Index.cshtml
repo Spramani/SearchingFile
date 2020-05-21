@@ -1,0 +1,35 @@
+﻿@model searching_data.Models.post
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>imagepost</h2>
+<div class="row">
+
+    <div class="col-md-10">
+        <div class="btn btn-primary">
+            <input type="file" id="imageBrowes" />
+
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="container">
+            <div class="form-group">
+                <div class="input-group">
+<input type="text" id="search_input" onkeyup="search_pro(this)" placeholder="Search" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="show_search">
+
+        </div>
+    </div>
+</div>
+
+
+
